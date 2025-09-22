@@ -206,6 +206,11 @@ p {
     overflow: hidden;
 }
 
+.hero--compact {
+    height: 55vh;
+    min-height: 380px;
+}
+
 .hero-background {
     position: absolute;
     top: 0;
@@ -298,6 +303,128 @@ section {
     color: white;
 }
 
+.about .section-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 3rem 0 2rem;
+}
+
+.ijazat-list {
+    margin-left: 1.25rem;
+    margin-top: 0.5rem;
+}
+
+.ijazat-list li {
+    margin-bottom: 0.5rem;
+}
+
+/* Teachers Timeline */
+.timeline {
+    position: relative;
+    margin: 2rem auto 0;
+    padding: 2rem 0;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.25), rgba(255,255,255,0.08));
+}
+
+.teacher-card {
+    position: relative;
+    width: calc(50% - 40px);
+    background: #242424;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    padding: 1.25rem 1.5rem;
+    margin: 1rem 0;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.teacher-card.left {
+    margin-right: auto;
+}
+
+.teacher-card.right {
+    margin-left: auto;
+}
+
+.teacher-card::after {
+    content: '';
+    position: absolute;
+    top: 24px;
+    width: 12px;
+    height: 12px;
+    background: #3b82f6;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.25);
+}
+
+.teacher-card.left::after {
+    right: -46px;
+}
+
+.teacher-card.right::after {
+    left: -46px;
+}
+
+/* Arrow pointers from cards to the center line dots */
+.teacher-card.left::before,
+.teacher-card.right::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    border: 8px solid transparent;
+}
+
+.teacher-card.left::before {
+    right: -16px;
+    border-left-color: #ffffff;
+}
+
+.teacher-card.right::before {
+    left: -16px;
+    border-right-color: #ffffff;
+}
+
+.teacher-info h3 {
+    margin-bottom: 0.5rem;
+}
+
+.teacher-info p {
+    margin: 0;
+}
+
+@media (max-width: 992px) {
+    .teacher-card {
+        width: calc(50% - 24px);
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline-line {
+        left: 16px;
+        transform: none;
+    }
+
+    .teacher-card,
+    .teacher-card.left,
+    .teacher-card.right {
+        width: 100%;
+        margin-left: 32px;
+        margin-right: 0;
+    }
+
+    .teacher-card::after {
+        left: -32px;
+    }
+}
+
 .features {
     display: flex;
     justify-content: center;
@@ -349,6 +476,212 @@ section {
 .feature:nth-child(2) i {
     color: white;
 }
+
+/* ABOUT: Values Grid */
+.values .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.value-card {
+    background: #2a2a2a;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.value-card i {
+    font-size: 2rem;
+    color: #3b82f6;
+    margin-bottom: 0.75rem;
+}
+
+.value-card h4 { margin-bottom: 0.5rem; }
+
+/* ABOUT: Stats Band */
+.stats-band {
+    background: #1a1a1a;
+    padding: 50px 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ABOUT: Milestones */
+.milestone-list {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 36px;
+}
+
+.milestone-list::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.25), rgba(255,255,255,0.1));
+    border-radius: 2px;
+}
+
+.milestone-item {
+    position: relative;
+    margin-bottom: 1rem;
+    background: #242424;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 1rem 1.25rem 1rem 1.25rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.milestone-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.3);
+}
+
+.milestone-dot { display: none; }
+
+.milestone-content h4 { margin-bottom: 0.35rem; }
+
+/* ABOUT: CTA Banner */
+.cta-banner {
+    position: relative;
+    overflow: hidden;
+    padding: 90px 0;
+}
+
+.cta-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26,26,26,0.85), rgba(26,26,26,0.6));
+    z-index: -1;
+}
+
+.cta-content { text-align: center; }
+
+/* COURSE LEVELS */
+.levels {
+    background: #1a1a1a;
+}
+
+.levels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.level-card {
+    background: #242424;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.level-card h3 { margin-bottom: 0.75rem; }
+.level-card ul { padding-left: 1.25rem; }
+.level-card li { margin-bottom: 0.5rem; }
+
+/* Course book grid inside levels */
+.book-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: .5rem; }
+.book-card {
+    background: #2a2a2a;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 12px;
+    padding: 1rem 1rem 0.75rem;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    position: relative;
+    min-height: 360px; /* taller cards to visually align close to section header */
+}
+.book-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.32); border-color: rgba(59,130,246,.45); }
+.book-title { font-weight: 700; margin-bottom: .25rem; }
+.book-meta { font-size: .95rem; opacity: .9; }
+.level-hint { margin-top: .35rem; margin-bottom: .5rem; opacity: .9; font-size: .95rem; }
+
+/* Place ijazah badge to the right of the title */
+.book-card .ijazah-label { position: absolute; top: 10px; right: 12px; background: rgba(59,130,246,.15); color: #9ec3ff; border: 1px solid rgba(59,130,246,.35); padding: 2px 8px; border-radius: 999px; font-size: .75rem; line-height: 1; }
+
+/* Book card layout helpers */
+.book-body { flex: 1 1 auto; display: grid; grid-template-rows: auto 1fr auto; gap: 0.5rem; padding-top: 0.25rem; }
+.book-actions { display: flex; justify-content: center; align-items: center; }
+.book-stats { display: flex; justify-content: space-between; gap: 0.75rem; font-size: .9rem; opacity: .85; border-top: 1px solid rgba(255,255,255,.08); padding-top: 0.6rem; }
+
+/* COURSE SECTIONS (detailed per-course pages) */
+.course-sections .course-section {
+    margin-bottom: 2rem;
+    background: #242424;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.course-sections .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background: #2a2a2a;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.course-sections .section-content { padding: 1.25rem; }
+.course-sections .section-status { font-size: 0.9rem; opacity: 0.9; }
+.course-sections .section-lock-message { opacity: 0.9; margin: 1rem 0; }
+
+.course-sections .level-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+.course-sections .level-card { background: #1f1f1f; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 1rem; }
+.course-sections .level-header { display: flex; justify-content: space-between; align-items: center; }
+.course-sections .ijazah-label { font-size: 0.75rem; background: rgba(59,130,246,.15); color: #9ec3ff; padding: .2rem .5rem; border-radius: 999px; }
+.course-sections .cta-button { margin-top: .75rem; }
+
+/* Simple modal (shared) */
+.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 1000; }
+.modal-content { background: #fff; color: #111; max-width: 900px; margin: 8vh auto; border-radius: 12px; padding: 1.25rem; position: relative; }
+.modal .close { position: absolute; right: 14px; top: 10px; font-size: 28px; cursor: pointer; }
+.scholar-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.scholar-card { border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px; background: #fff; color: #111; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease; }
+.scholar-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.12); }
+.scholar-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 8px; }
 
 /* ========================================
    COURSES SECTION

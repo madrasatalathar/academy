@@ -92,6 +92,7 @@ function animateOnScroll() {
 document.addEventListener('DOMContentLoaded', function() {
     // Add animation classes to course cards
     const courseCards = document.querySelectorAll('.course-card');
+    const bookCards = document.querySelectorAll('.book-card');
     courseCards.forEach((card, index) => {
         card.classList.add('animate-on-scroll');
         card.style.animationDelay = `${index * 0.1}s`;
@@ -118,6 +119,8 @@ window.addEventListener('load', animateOnScroll);
 // Contact Form Handling - FormSubmit handles submission
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.querySelector('.contact-form');
+    const modal = document.getElementById('scholarModal');
+    const modalClose = document.querySelector('.modal .close');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -133,6 +136,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }, 3000);
+        });
+    }
+
+    // Simple modal controls (if present on course pages)
+    const startLearningBtn = document.getElementById('startLearningBtn');
+    if (startLearningBtn && modal) {
+        startLearningBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            modal.style.display = 'block';
+        });
+    }
+    if (modal && modalClose) {
+        modalClose.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
         });
     }
 });
@@ -219,11 +241,28 @@ document.addEventListener('DOMContentLoaded', function() {
         const courseBtn = card.querySelector('.course-btn');
         if (courseBtn) {
             courseBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const courseTitle = card.querySelector('h3').textContent;
-                showNotification(`More information about ${courseTitle} will be available soon!`, 'info');
+                const href = courseBtn.getAttribute('href');
+                // Only show notification if the button does not navigate anywhere
+                if (!href || href === '#') {
+                    e.preventDefault();
+                    const courseTitle = card.querySelector('h3').textContent;
+                    showNotification(`More information about ${courseTitle} will be available soon!`, 'info');
+                }
+                // Otherwise allow normal navigation
             });
         }
+    });
+
+    // Handle book/course selection in levels
+    bookCards.forEach(book => {
+        book.addEventListener('click', function(e) {
+            const href = book.getAttribute('href');
+            if (!href || href === '#') {
+                e.preventDefault();
+                const title = book.querySelector('.book-title')?.textContent || 'this course';
+                showNotification(`Details for ${title} will be added soon.`, 'info');
+            }
+        });
     });
 });
 
