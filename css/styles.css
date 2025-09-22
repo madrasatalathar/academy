@@ -683,6 +683,21 @@ section {
 .scholar-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.12); }
 .scholar-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 8px; }
 
+/* Responsive adjustments for course cards */
+@media (max-width: 768px) {
+    .book-grid { grid-template-columns: 1fr; }
+    .book-card { min-height: 300px; }
+    .book-actions .btn { width: 100%; }
+    .book-stats { font-size: .85rem; }
+}
+
+@media (max-width: 480px) {
+    .book-card { min-height: 280px; padding: 0.9rem 0.9rem 0.7rem; }
+    .book-title { font-size: 1.05rem; }
+    .book-stats { gap: 0.5rem; }
+    .course-sections .section-header { padding: 0.75rem 1rem; }
+}
+
 /* ========================================
    COURSES SECTION
    ======================================== */
