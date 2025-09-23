@@ -121,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.querySelector('.contact-form');
     const modal = document.getElementById('scholarModal');
     const modalClose = document.querySelector('.modal .close');
+    const languageModal = document.getElementById('languageModal');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -140,13 +141,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Simple modal controls (if present on course pages)
-    const startLearningBtn = document.getElementById('startLearningBtn');
-    if (startLearningBtn && modal) {
-        startLearningBtn.addEventListener('click', function(e) {
+    // Open language modal from any Start Course button
+    document.querySelectorAll('.book-actions .btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
             e.preventDefault();
-            modal.style.display = 'block';
+            if (languageModal) {
+                languageModal.style.display = 'flex';
+            }
         });
-    }
+    });
     if (modal && modalClose) {
         modalClose.addEventListener('click', function() {
             modal.style.display = 'none';
@@ -155,6 +158,30 @@ document.addEventListener('DOMContentLoaded', function() {
             if (event.target === modal) {
                 modal.style.display = 'none';
             }
+        });
+    }
+
+    // Language modal close and selection
+    if (languageModal) {
+        const langClose = languageModal.querySelector('.close');
+        if (langClose) {
+            langClose.addEventListener('click', function() {
+                languageModal.style.display = 'none';
+            });
+        }
+        window.addEventListener('click', function(event) {
+            if (event.target === languageModal) {
+                languageModal.style.display = 'none';
+            }
+        });
+
+        document.querySelectorAll('.lang-option').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                languageModal.style.display = 'none';
+                showNotification(`Loading ${lang} course...`, 'info');
+                // TODO: replace with actual navigation per book and language
+            });
         });
     }
 });
