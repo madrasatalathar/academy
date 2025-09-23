@@ -697,9 +697,37 @@ section {
 .course-sections .cta-button { margin-top: .75rem; }
 
 /* Simple modal (shared) */
-.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 1000; }
-.modal-content { background: #fff; color: #111; max-width: 900px; margin: 8vh auto; border-radius: 12px; padding: 1.25rem; position: relative; }
-.modal .close { position: absolute; right: 14px; top: 10px; font-size: 28px; cursor: pointer; }
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background: #2a2a2a;
+    color: white;
+    max-width: 520px;
+    width: 92%;
+    border-radius: 14px;
+    padding: 1.25rem 1.25rem 1rem;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.modal .close {
+    position: absolute;
+    right: 14px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #9ec3ff;
+}
+.modal-content h2 { margin-bottom: 0.75rem; }
+.modal-content .btn { min-width: 140px; }
 .scholar-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
 .scholar-card { border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px; background: #fff; color: #111; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease; }
 .scholar-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.12); }
