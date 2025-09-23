@@ -656,6 +656,18 @@ section {
 .book-actions { display: flex; justify-content: center; align-items: center; }
 .book-stats { display: flex; justify-content: space-between; gap: 0.75rem; font-size: .9rem; opacity: .85; border-top: 1px solid rgba(255,255,255,.08); padding-top: 0.6rem; }
 
+/* Ijazah badge for stats row */
+.ijazah-badge {
+    background: rgba(59,130,246,.15);
+    color: #9ec3ff;
+    border: 1px solid rgba(59,130,246,.35);
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: .75rem;
+    line-height: 1;
+    align-self: center;
+}
+
 /* COURSE SECTIONS (detailed per-course pages) */
 .course-sections .course-section {
     margin-bottom: 2rem;
