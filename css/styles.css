@@ -409,6 +409,40 @@ section {
     margin: 0;
 }
 
+/* Teachers grid */
+.teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.teacher-card-box {
+    background: #2a2a2a;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+}
+
+.teacher-card-box h3 { margin-bottom: 0.5rem; }
+.teacher-meta { font-size: .95rem; opacity: .9; margin-bottom: 0.5rem; }
+.teacher-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.badge { background: rgba(59,130,246,.15); color: #9ec3ff; border: 1px solid rgba(59,130,246,.35); padding: 2px 8px; border-radius: 999px; font-size: .75rem; }
+
+/* Teacher card lists */
+.teacher-card-box ul {
+    padding-left: 1.2rem;
+    margin: 0.5rem 0 0;
+}
+
+.teacher-card-box li {
+    margin-bottom: 0.35rem;
+}
+
+@media (max-width: 768px) {
+    .teachers-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 992px) {
     .teacher-card {
         width: calc(50% - 24px);
