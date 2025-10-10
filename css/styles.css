@@ -1142,6 +1142,27 @@ section {
 }
 
 /* ========================================
+   X LOGO FALLBACK
+   ======================================== */
+
+/* Fallback for X logo if Font Awesome doesn't load */
+.social-links a[href*="x.com"] i.fab.fa-x-twitter:before {
+    content: "✕";
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Ensure X logo is visible */
+.social-links a[href*="x.com"] i.fab.fa-x-twitter {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    line-height: 1;
+}
+
+/* ========================================
    ANIMATIONS
    ======================================== */
 
